@@ -13,7 +13,7 @@
   --main-color: #ea580c;
 }
 html {
-  font-size: 62.5%; /* 1rem = 10px para facilitar cálculos rápidos */
+  font-size: 62.5%;
   overflow-x: hidden;
 }
 body {
@@ -243,7 +243,6 @@ section {
   display: block;
 }
 
-/* --- MEDIA QUERIES --- */
 
 @media (max-width: 1200px) {
   html {
@@ -302,7 +301,7 @@ section {
     text-align: center;
   }
   header .gradient-btn {
-    display: none; /* Oculta el botón extra de contacto en móvil para no saturar el header */
+    display: none; /
   }
   .heading {
     font-size: 4rem;
@@ -318,4 +317,41 @@ section {
     min-height: auto;
     padding: 2rem 0;
   }
+
+
+  .back-container {
+    text-align: center;
+    margin: 6rem 0 3rem;
+  }
+
+  .back-button {
+    display: inline-flex;
+    align-items: center;
+    gap: 1rem;
+    font-size: 1.8rem;
+    padding: 1.2rem 2.8rem;
+    border-radius: 3rem;
+    background: linear-gradient(270deg, #DF8908 10%, #FF1D15 100%);
+    letter-spacing: 1px;
+    cursor: pointer;
+    transition: 0.3s ease-in-out;
+    color: white;
+    font-weight: 600;
+    box-shadow: 0 0 15px rgba(234, 88, 12, 0.3);
+  }
+
+  .back-button:hover {
+    transform: scale(1.05);
+    box-shadow: 0 0 25px var(--main-color),
+    0 0 50px var(--main-color);
+  }
+
+
+  @media (max-width: 768px) {
+    .back-button {
+      font-size: 1.6rem;
+      padding: 1rem 2.2rem;
+    }
+  }
+
 }
