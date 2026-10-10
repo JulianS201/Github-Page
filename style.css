@@ -347,4 +347,22 @@ section {
     font-size: 1.6rem;
     padding: 1rem 2.2rem;
   }
+
+
+
+  .project-gifs-container {
+    display: flex;
+    gap: 10px;
+    justify-content: center;
+    width: 100%;
+    margin-bottom: 15px;
+  }
+
+
+  .project-gifs-container img {
+    width: calc(50% - 5px);
+    object-fit: cover;
+    border-radius: 8px;
+  }
+
 }
