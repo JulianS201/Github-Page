@@ -367,66 +367,79 @@ section {
 
 
   .scroll-container {
-    position: fixed !important;   /* Se despega por completo de la estructura rota */
-    bottom: 40px !important;      /* Lo separa del borde inferior de la pantalla */
-    left: 50% !important;         /* Lo mueve exactamente al centro horizontal */
-    transform: translateX(-50%) !important; /* Ajuste para centrado matemático perfecto */
-    display: flex !important;
-    flex-direction: column !important;
-    align-items: center !important;
-    justify-content: center !important;
-    gap: 15px !important;
-    z-index: 9999 !important;     /* Asegura que no quede oculto detrás del fondo negro */
+    position: relative;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    margin: 40px auto 0 auto; /* Lo centra en pantallas pequeñas */
+    gap: 12px;
+    width: 100%;
+    clear: both; /* Rompe flotados anteriores */
   }
 
-  /* Texto de "Scroll Down" con tamaño aumentado */
   .scroll-text {
-    color: #ffffff !important;
-    font-size: 1rem !important;   /* Más grande para que sea legible */
-    font-weight: 700 !important;
-    text-transform: uppercase !important;
-    letter-spacing: 3px !important;
-    font-family: sans-serif !important;
-    opacity: 0.9 !important;
+    color: #ffffff;
+    font-size: 0.9rem;
+    font-weight: 600;
+    text-transform: uppercase;
+    letter-spacing: 2px;
+    font-family: sans-serif;
+    opacity: 0.8;
   }
 
-  /* El círculo con borde naranja, forzado a ser grande */
   .scroll-circle {
-    width: 60px !important;
-    height: 60px !important;
-    border: 3px solid #ff4500 !important;
-    border-radius: 50% !important;
-    display: flex !important;
-    align-items: center !important;
-    justify-content: center !important;
-    cursor: pointer !important;
-    background-color: rgba(255, 69, 0, 0.15) !important;
-    animation: bounceEffectFixed 2s infinite ease-in-out !important; /* Activamos la nueva animación */
-    transition: all 0.3s ease !important;
+    width: 55px;
+    height: 55px;
+    border: 3px solid #ff4500;
+    border-radius: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    cursor: pointer;
+    background-color: rgba(255, 69, 0, 0.1);
+    animation: bounceEffectPC 2s infinite ease-in-out;
+    transition: all 0.3s ease;
   }
 
-  /* Efecto al pasar el mouse por encima */
-  .scroll-circle:hover {
-    background-color: #ff4500 !important;
-  }
-  .scroll-circle:hover i {
-    color: #ffffff !important;
-  }
-
-  /* La flecha de Boxicons forzada a tamaño gigante */
   .scroll-circle i {
-    color: #ff4500 !important;
-    font-size: 2.5rem !important; /* Icono grande y muy visible */
-    transition: color 0.3s ease !important;
+    color: #ff4500;
+    font-size: 2.2rem;
   }
 
-  /* Nueva animación de rebote optimizada para posición fija */
-  @keyframes bounceEffectFixed {
-    0%, 100% {
-      transform: translateY(0);
+  /* =======================================================
+     REGLAS ESPECÍFICAS PARA PC (Aquí es donde se arregla)
+     ======================================================= */
+  @media (min-width: 769px) {
+    /* Forzamos a la sección entera a alinearse verticalmente */
+    .home-summary {
+      display: flex !important;
+      flex-direction: column !important;
+      justify-content: center !important;
+      align-items: center !important;
+      min-height: 50vh !important; /* Le da buena altura a la presentación */
+      position: relative !important;
     }
-    50% {
-      transform: translateY(12px); /* Movimiento de arriba a abajo notable */
+
+    /* Forzamos al contenedor de texto a no expandirse a los lados */
+    .home-content {
+      width: 100% !important;
+      text-align: center !important; /* Centra tus títulos y textos en PC */
     }
+
+    /* Colocamos el indicador en su posición absoluta ideal abajo en PC */
+    .scroll-container {
+      position: absolute !important;
+      bottom: 10px !important;
+      left: 50% !important;
+      transform: translateX(-50%) !important;
+      margin-top: 0 !important;
+    }
+  }
+
+  /* Animación de rebote limpia */
+  @keyframes bounceEffectPC {
+    0%, 100% { transform: translateY(0); }
+    50% { transform: translateY(10px); }
   }
 }
