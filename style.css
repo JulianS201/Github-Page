@@ -366,77 +366,67 @@ section {
   }
 
 
-
-  /* Primero, le aseguramos al contenedor padre que permita elementos absolutos */
-  .home-summary {
-    position: relative;
-    min-height: 45vh; /* Le da una altura mínima para asegurar que haya espacio abajo */
-    padding-bottom: 120px !important; /* Deja espacio libre abajo para que no choque con el texto */
-  }
-
-  /* NUEVO CSS CORREGIDO PARA EL INDICADOR CENTRADO */
   .scroll-container {
-    position: absolute;
-    bottom: 20px;       /* Lo empuja al borde inferior de la sección */
-    left: 50%;          /* Lo mueve al centro horizontal */
-    transform: translateX(-50%); /* Centrado matemático perfecto */
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    justify-content: center;
-    gap: 12px;
-    z-index: 100;       /* Lo pone por encima de cualquier otro fondo */
+    position: fixed !important;   /* Se despega por completo de la estructura rota */
+    bottom: 40px !important;      /* Lo separa del borde inferior de la pantalla */
+    left: 50% !important;         /* Lo mueve exactamente al centro horizontal */
+    transform: translateX(-50%) !important; /* Ajuste para centrado matemático perfecto */
+    display: flex !important;
+    flex-direction: column !important;
+    align-items: center !important;
+    justify-content: center !important;
+    gap: 15px !important;
+    z-index: 9999 !important;     /* Asegura que no quede oculto detrás del fondo negro */
   }
 
-  /* Texto de "Scroll Down" más visible */
+  /* Texto de "Scroll Down" con tamaño aumentado */
   .scroll-text {
-    color: #ffffff;
-    font-size: 0.9rem;
-    font-weight: 600;
-    text-transform: uppercase;
-    letter-spacing: 2px;
-    font-family: sans-serif;
-    opacity: 0.8;
+    color: #ffffff !important;
+    font-size: 1rem !important;   /* Más grande para que sea legible */
+    font-weight: 700 !important;
+    text-transform: uppercase !important;
+    letter-spacing: 3px !important;
+    font-family: sans-serif !important;
+    opacity: 0.9 !important;
   }
 
-  /* El círculo con borde naranja, ahora más grande */
+  /* El círculo con borde naranja, forzado a ser grande */
   .scroll-circle {
-    width: 55px;        /* Aumentado de tamaño para que se vea claro */
-    height: 55px;       /* Aumentado de tamaño */
-    border: 3px solid #ff4500; /* Borde un poco más grueso */
-    border-radius: 50%;
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    cursor: pointer;
-    background-color: rgba(255, 69, 0, 0.1); /* Fondo sutil naranja */
-    animation: bounceEffect 2s infinite ease-in-out;
-    transition: all 0.3s ease;
+    width: 60px !important;
+    height: 60px !important;
+    border: 3px solid #ff4500 !important;
+    border-radius: 50% !important;
+    display: flex !important;
+    align-items: center !important;
+    justify-content: center !important;
+    cursor: pointer !important;
+    background-color: rgba(255, 69, 0, 0.15) !important;
+    animation: bounceEffectFixed 2s infinite ease-in-out !important; /* Activamos la nueva animación */
+    transition: all 0.3s ease !important;
   }
 
-  /* Efecto Hover */
+  /* Efecto al pasar el mouse por encima */
   .scroll-circle:hover {
-    background-color: #ff4500;
-    transform: scale(1.05);
+    background-color: #ff4500 !important;
   }
   .scroll-circle:hover i {
-    color: #ffffff;
+    color: #ffffff !important;
   }
 
-  /* La flecha de Boxicons mucho más grande */
+  /* La flecha de Boxicons forzada a tamaño gigante */
   .scroll-circle i {
-    color: #ff4500;
-    font-size: 2.2rem; /* Flecha grande y visible */
-    transition: color 0.3s ease;
+    color: #ff4500 !important;
+    font-size: 2.5rem !important; /* Icono grande y muy visible */
+    transition: color 0.3s ease !important;
   }
 
-  /* Animación de rebote suave */
-  @keyframes bounceEffect {
+  /* Nueva animación de rebote optimizada para posición fija */
+  @keyframes bounceEffectFixed {
     0%, 100% {
       transform: translateY(0);
     }
     50% {
-      transform: translateY(10px); /* Rebota un poco más notable */
+      transform: translateY(12px); /* Movimiento de arriba a abajo notable */
     }
   }
 }
