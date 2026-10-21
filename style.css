@@ -367,63 +367,76 @@ section {
 
 
 
+  /* Primero, le aseguramos al contenedor padre que permita elementos absolutos */
+  .home-summary {
+    position: relative;
+    min-height: 45vh; /* Le da una altura mínima para asegurar que haya espacio abajo */
+    padding-bottom: 120px !important; /* Deja espacio libre abajo para que no choque con el texto */
+  }
+
+  /* NUEVO CSS CORREGIDO PARA EL INDICADOR CENTRADO */
   .scroll-container {
-    width: 100%;
+    position: absolute;
+    bottom: 20px;       /* Lo empuja al borde inferior de la sección */
+    left: 50%;          /* Lo mueve al centro horizontal */
+    transform: translateX(-50%); /* Centrado matemático perfecto */
     display: flex;
     flex-direction: column;
     align-items: center;
     justify-content: center;
-    margin-top: 50px; /* Espacio debajo de tu texto */
-    gap: 10px;
+    gap: 12px;
+    z-index: 100;       /* Lo pone por encima de cualquier otro fondo */
   }
 
-  /* Texto de "Scroll Down" */
+  /* Texto de "Scroll Down" más visible */
   .scroll-text {
     color: #ffffff;
-    font-size: 0.85rem;
+    font-size: 0.9rem;
+    font-weight: 600;
     text-transform: uppercase;
     letter-spacing: 2px;
     font-family: sans-serif;
-    opacity: 0.7;
+    opacity: 0.8;
   }
 
-  /* El círculo con borde naranja */
+  /* El círculo con borde naranja, ahora más grande */
   .scroll-circle {
-    width: 45px;
-    height: 45px;
-    border: 2px solid #ff4500; /* Cambia al naranja de tu diseño */
+    width: 55px;        /* Aumentado de tamaño para que se vea claro */
+    height: 55px;       /* Aumentado de tamaño */
+    border: 3px solid #ff4500; /* Borde un poco más grueso */
     border-radius: 50%;
     display: flex;
     align-items: center;
     justify-content: center;
     cursor: pointer;
-    background-color: rgba(255, 69, 0, 0.05); /* Un fondo sutil transparente */
-    animation: bounceEffect 2s infinite ease-in-out; /* Animación de rebote */
+    background-color: rgba(255, 69, 0, 0.1); /* Fondo sutil naranja */
+    animation: bounceEffect 2s infinite ease-in-out;
     transition: all 0.3s ease;
   }
 
-  /* Efecto al pasar el mouse por encima */
+  /* Efecto Hover */
   .scroll-circle:hover {
     background-color: #ff4500;
+    transform: scale(1.05);
   }
   .scroll-circle:hover i {
     color: #ffffff;
   }
 
-  /* Estilo de la flecha de Boxicons dentro del círculo */
+  /* La flecha de Boxicons mucho más grande */
   .scroll-circle i {
-    color: #ff4500; /* Cambia al naranja de tu diseño */
-    font-size: 1.8rem;
+    color: #ff4500;
+    font-size: 2.2rem; /* Flecha grande y visible */
     transition: color 0.3s ease;
   }
 
-  /* Animación personalizada de rebote suave de arriba a abajo */
+  /* Animación de rebote suave */
   @keyframes bounceEffect {
     0%, 100% {
       transform: translateY(0);
     }
     50% {
-      transform: translateY(8px); /* Baja 8 píxeles y sube */
+      transform: translateY(10px); /* Rebota un poco más notable */
     }
   }
 }
