@@ -367,26 +367,63 @@ section {
 
 
 
-
-  .scroll-down-indicator {
+  .scroll-container {
+    width: 100%;
     display: flex;
     flex-direction: column;
     align-items: center;
     justify-content: center;
-    margin-top: 40px;
+    margin-top: 50px; /* Espacio debajo de tu texto */
+    gap: 10px;
+  }
+
+  /* Texto de "Scroll Down" */
+  .scroll-text {
     color: #ffffff;
-    font-family: sans-serif;
-    font-size: 0.9rem;
-    letter-spacing: 1px;
+    font-size: 0.85rem;
     text-transform: uppercase;
-    opacity: 0.8;
+    letter-spacing: 2px;
+    font-family: sans-serif;
+    opacity: 0.7;
   }
 
-
-  .scroll-down-indicator i {
-    font-size: 2.5rem;
-    color: #ff4500;
-    margin-top: 5px;
+  /* El círculo con borde naranja */
+  .scroll-circle {
+    width: 45px;
+    height: 45px;
+    border: 2px solid #ff4500; /* Cambia al naranja de tu diseño */
+    border-radius: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    cursor: pointer;
+    background-color: rgba(255, 69, 0, 0.05); /* Un fondo sutil transparente */
+    animation: bounceEffect 2s infinite ease-in-out; /* Animación de rebote */
+    transition: all 0.3s ease;
   }
 
+  /* Efecto al pasar el mouse por encima */
+  .scroll-circle:hover {
+    background-color: #ff4500;
+  }
+  .scroll-circle:hover i {
+    color: #ffffff;
+  }
+
+  /* Estilo de la flecha de Boxicons dentro del círculo */
+  .scroll-circle i {
+    color: #ff4500; /* Cambia al naranja de tu diseño */
+    font-size: 1.8rem;
+    transition: color 0.3s ease;
+  }
+
+  /* Animación personalizada de rebote suave de arriba a abajo */
+  @keyframes bounceEffect {
+    0%, 100% {
+      transform: translateY(0);
+    }
+    50% {
+      transform: translateY(8px); /* Baja 8 píxeles y sube */
+    }
+  }
 }
