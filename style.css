@@ -366,7 +366,6 @@ section {
   }
 
   .scroll-container {
-    position: relative;
     display: flex !important;
     flex-direction: column !important;
     align-items: center !important;
@@ -374,7 +373,9 @@ section {
     margin: 40px auto 0 auto !important;
     gap: 12px !important;
     width: 100% !important;
-    clear: both !important;
+    position: relative !important;
+    left: 0 !important;
+    transform: none !important;
   }
 
   .scroll-text {
@@ -385,7 +386,6 @@ section {
     letter-spacing: 2px !important;
     font-family: sans-serif !important;
     opacity: 0.8 !important;
-    display: block !important;
     text-align: center !important;
   }
 
@@ -403,16 +403,17 @@ section {
     background-color: rgba(255, 69, 0, 0.1) !important;
     animation: bounceEffectPC 2s infinite ease-in-out !important;
     transition: all 0.3s ease !important;
-    margin: 0 auto !important;
   }
 
-  .scroll-circle i {
-    color: #ff4500 !important;
-    font-size: 2.2rem !important;
-    display: block !important;
+  /* Estilo para la nueva flecha nativa */
+  .arrow-svg {
+    width: 32px !important;
+    height: 32px !important;
+    fill: #ff4500 !important;
+    transition: fill 0.3s ease;
   }
 
-  /* OTROS ESTILOS LIMPIOS */
+  /* OTROS ESTILOS COMPLEMENTARIOS */
   .heading { font-size: 4rem; }
   .home-content h1 { font-size: 5rem; }
   .home-img img { width: 260px; height: 260px; }
@@ -422,13 +423,14 @@ section {
   .project-gifs-container img { width: calc(50% - 5px); object-fit: cover; border-radius: 8px; }
 
   /* =======================================================
-     REGLAS ESPECÍFICAS PARA PC (FUERZA BRUTA DE CENTRADO)
+     REGLAS ESPECÍFICAS PARA PC (Aquí se destruye el error de alineación)
      ======================================================= */
   @media (min-width: 769px) {
-    /* Forzamos a la sección contenedora a centrar todo verticalmente */
+
+    /* Forzamos a que la sección principal limpie anclajes absolutos viejos */
     .home-summary,
     section.home,
-    .home {
+    #home.home {
       display: flex !important;
       flex-direction: column !important;
       justify-content: center !important;
@@ -437,9 +439,11 @@ section {
       width: 100% !important;
       text-align: center !important;
       padding: 0 10% !important;
+      position: relative !important;
+      transform: none !important;
     }
 
-    /* Forzamos al contenedor de texto a centrarse e ignorar flotados de PC */
+    /* Forzamos al contenedor de texto a centrarse en medio de la pantalla */
     .home-content {
       display: flex !important;
       flex-direction: column !important;
@@ -449,23 +453,19 @@ section {
       max-width: 800px !important;
       margin: 0 auto !important;
       text-align: center !important;
-      float: none !important;
+      position: relative !important;
+      top: 0 !important;
+      left: 0 !important;
+      transform: none !important;
     }
 
-    /* Forzamos a que el título H3 y el párrafo se centren en PC */
+    /* Forzamos que los títulos y párrafos no hereden "text-align: left" de arriba */
     .home-content h3,
     .home-content p,
     .home-content h1 {
       text-align: center !important;
       width: 100% !important;
-      margin-left: auto !important;
-      margin-right: auto !important;
-    }
-
-    /* El contenedor de scroll ahora baja centrado abajo del texto */
-    .scroll-container {
-      margin: 50px auto 0 auto !important;
-      width: auto !important;
+      margin: 10px auto !important;
     }
   }
 
