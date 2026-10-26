@@ -348,8 +348,6 @@ section {
     padding: 1rem 2.2rem;
   }
 
-
-
   .project-gifs-container {
     display: flex;
     gap: 10px;
@@ -358,120 +356,98 @@ section {
     margin-bottom: 15px;
   }
 
-
   .project-gifs-container img {
     width: calc(50% - 5px);
     object-fit: cover;
     border-radius: 8px;
   }
+}
 
-  .scroll-container {
+/* --- ESTILOS GENERALES DEL BOTÓN DE SCROLL (MÓVIL Y PC) --- */
+.scroll-container {
+  display: flex !important;
+  flex-direction: column !important;
+  align-items: center !important;
+  justify-content: center !important;
+  margin: 40px auto 0 auto !important;
+  gap: 12px !important;
+  width: 100% !important;
+  position: relative !important;
+}
+
+.scroll-text {
+  color: #ffffff !important;
+  font-size: 1.2rem !important;
+  font-weight: 600 !important;
+  text-transform: uppercase !important;
+  letter-spacing: 2px !important;
+  font-family: sans-serif !important;
+  opacity: 0.8 !important;
+  text-align: center !important;
+}
+
+.scroll-circle {
+  width: 55px !important;
+  height: 55px !important;
+  min-width: 55px !important;
+  min-height: 55px !important;
+  border: 3px solid #ff4500 !important;
+  border-radius: 50% !important;
+  display: flex !important;
+  align-items: center !important;
+  justify-content: center !important;
+  cursor: pointer !important;
+  background-color: rgba(255, 69, 0, 0.1) !important;
+  animation: bounceEffectPC 2s infinite ease-in-out !important;
+  transition: all 0.3s ease !important;
+}
+
+.arrow-svg {
+  width: 32px !important;
+  height: 32px !important;
+  fill: #ff4500 !important;
+}
+
+@keyframes bounceEffectPC {
+  0%, 100% { transform: translateY(0); }
+  50% { transform: translateY(10px); }
+}
+
+/* =======================================================
+   REGLAS ESPECÍFICAS PARA PC (ESTRUCTURA DE SUBPÁGINA BLOCKBENCH)
+   ======================================================= */
+@media (min-width: 769px) {
+  /* Forzamos a la presentación vertical tipo bloque solo para el bloque secundario */
+  .home-summary,
+  section.home-summary {
+    display: flex !important;
+    flex-direction: column !important;
+    justify-content: center !important;
+    align-items: center !important;
+    min-height: 80vh !important;
+    width: 100% !important;
+    text-align: center !important;
+    padding: 10rem 9% 2rem !important;
+  }
+
+  /* Centramos todo el contenido textual sin romper la cuadrícula flex horizontal original del index */
+  .home-summary .home-content {
     display: flex !important;
     flex-direction: column !important;
     align-items: center !important;
     justify-content: center !important;
-    margin: 40px auto 0 auto !important;
-    gap: 12px !important;
     width: 100% !important;
-    position: relative !important;
-    left: 0 !important;
-    transform: none !important;
-  }
-
-  .scroll-text {
-    color: #ffffff !important;
-    font-size: 0.9rem !important;
-    font-weight: 600 !important;
-    text-transform: uppercase !important;
-    letter-spacing: 2px !important;
-    font-family: sans-serif !important;
-    opacity: 0.8 !important;
+    max-width: 800px !important;
+    margin: 0 auto !important;
     text-align: center !important;
   }
 
-  .scroll-circle {
-    width: 55px !important;
-    height: 55px !important;
-    min-width: 55px !important;
-    min-height: 55px !important;
-    border: 3px solid #ff4500 !important;
-    border-radius: 50% !important;
-    display: flex !important;
-    align-items: center !important;
-    justify-content: center !important;
-    cursor: pointer !important;
-    background-color: rgba(255, 69, 0, 0.1) !important;
-    animation: bounceEffectPC 2s infinite ease-in-out !important;
-    transition: all 0.3s ease !important;
-  }
-
-  /* Estilo para la nueva flecha nativa */
-  .arrow-svg {
-    width: 32px !important;
-    height: 32px !important;
-    fill: #ff4500 !important;
-    transition: fill 0.3s ease;
-  }
-
-  /* OTROS ESTILOS COMPLEMENTARIOS */
-  .heading { font-size: 4rem; }
-  .home-content h1 { font-size: 5rem; }
-  .home-img img { width: 260px; height: 260px; }
-  .service-box { min-height: auto; padding: 2rem 0; }
-  .back-button { font-size: 1.6rem; padding: 1rem 2.2rem; }
-  .project-gifs-container { display: flex; gap: 10px; justify-content: center; width: 100%; margin-bottom: 15px; }
-  .project-gifs-container img { width: calc(50% - 5px); object-fit: cover; border-radius: 8px; }
-
-  /* =======================================================
-     REGLAS ESPECÍFICAS PARA PC (Aquí se destruye el error de alineación)
-     ======================================================= */
-  @media (min-width: 769px) {
-
-    /* Forzamos a que la sección principal limpie anclajes absolutos viejos */
-    .home-summary,
-    section.home,
-    #home.home {
-      display: flex !important;
-      flex-direction: column !important;
-      justify-content: center !important;
-      align-items: center !important;
-      min-height: 80vh !important;
-      width: 100% !important;
-      text-align: center !important;
-      padding: 0 10% !important;
-      position: relative !important;
-      transform: none !important;
-    }
-
-    /* Forzamos al contenedor de texto a centrarse en medio de la pantalla */
-    .home-content {
-      display: flex !important;
-      flex-direction: column !important;
-      align-items: center !important;
-      justify-content: center !important;
-      width: 100% !important;
-      max-width: 800px !important;
-      margin: 0 auto !important;
-      text-align: center !important;
-      position: relative !important;
-      top: 0 !important;
-      left: 0 !important;
-      transform: none !important;
-    }
-
-    /* Forzamos que los títulos y párrafos no hereden "text-align: left" de arriba */
-    .home-content h3,
-    .home-content p,
-    .home-content h1 {
-      text-align: center !important;
-      width: 100% !important;
-      margin: 10px auto !important;
-    }
-  }
-
-  /* Animación de rebote limpia */
-  @keyframes bounceEffectPC {
-    0%, 100% { transform: translateY(0); }
-    50% { transform: translateY(10px); }
+  /* Forzamos alineaciones centradas a los textos internos de la subpágina */
+  .home-summary .home-content h3,
+  .home-summary .home-content p,
+  .home-summary .home-content h1 {
+    text-align: center !important;
+    width: 100% !important;
+    margin: 10px auto !important;
   }
 }
