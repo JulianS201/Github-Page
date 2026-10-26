@@ -407,33 +407,57 @@ section {
     font-size: 2.2rem;
   }
 
-  /* =======================================================
-     REGLAS ESPECÍFICAS PARA PC (Aquí es donde se arregla)
-     ======================================================= */
   @media (min-width: 769px) {
-    /* Forzamos a la sección entera a alinearse verticalmente */
-    .home-summary {
+
+    /* Forzamos a la sección contenedora a centrar todo en PC */
+    .home-summary,
+    section.home {
       display: flex !important;
       flex-direction: column !important;
       justify-content: center !important;
       align-items: center !important;
-      min-height: 50vh !important; /* Le da buena altura a la presentación */
-      position: relative !important;
-    }
-
-    /* Forzamos al contenedor de texto a no expandirse a los lados */
-    .home-content {
+      min-height: 80vh !important;
       width: 100% !important;
-      text-align: center !important; /* Centra tus títulos y textos en PC */
+      text-align: center !important;
+      padding: 0 10% !important;
     }
 
-    /* Colocamos el indicador en su posición absoluta ideal abajo en PC */
+    /* Forzamos al contenedor de texto a centrarse en medio de la pantalla */
+    .home-content {
+      display: flex !important;
+      flex-direction: column !important;
+      align-items: center !important;
+      justify-content: center !important;
+      width: 100% !important;
+      max-width: 800px !important;
+      margin: 0 auto !important;
+      text-align: center !important;
+    }
+
+    /* Forzamos a que los textos dentro no se alineen a la izquierda */
+    .home-content h3,
+    .home-content p {
+      text-align: center !important;
+      width: 100% !important;
+    }
+
+    /* El contenedor de scroll ahora baja de forma natural y centrada */
     .scroll-container {
-      position: absolute !important;
-      bottom: 10px !important;
-      left: 50% !important;
-      transform: translateX(-50%) !important;
-      margin-top: 0 !important;
+      display: flex !important;
+      flex-direction: column !important;
+      align-items: center !important;
+      justify-content: center !important;
+      margin: 50px auto 0 auto !important; /* Espaciado arriba y centrado horizontal */
+      width: auto !important;
+    }
+
+    /* Nos aseguramos de que el círculo recupere su tamaño y no se achique */
+    .scroll-circle {
+      display: flex !important;
+      width: 55px !important;
+      height: 55px !important;
+      min-width: 55px !important;
+      min-height: 55px !important;
     }
   }
 
