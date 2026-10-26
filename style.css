@@ -365,53 +365,70 @@ section {
     border-radius: 8px;
   }
 
-
   .scroll-container {
     position: relative;
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    justify-content: center;
-    margin: 40px auto 0 auto; /* Lo centra en pantallas pequeñas */
-    gap: 12px;
-    width: 100%;
-    clear: both; /* Rompe flotados anteriores */
+    display: flex !important;
+    flex-direction: column !important;
+    align-items: center !important;
+    justify-content: center !important;
+    margin: 40px auto 0 auto !important;
+    gap: 12px !important;
+    width: 100% !important;
+    clear: both !important;
   }
 
   .scroll-text {
-    color: #ffffff;
-    font-size: 0.9rem;
-    font-weight: 600;
-    text-transform: uppercase;
-    letter-spacing: 2px;
-    font-family: sans-serif;
-    opacity: 0.8;
+    color: #ffffff !important;
+    font-size: 0.9rem !important;
+    font-weight: 600 !important;
+    text-transform: uppercase !important;
+    letter-spacing: 2px !important;
+    font-family: sans-serif !important;
+    opacity: 0.8 !important;
+    display: block !important;
+    text-align: center !important;
   }
 
   .scroll-circle {
-    width: 55px;
-    height: 55px;
-    border: 3px solid #ff4500;
-    border-radius: 50%;
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    cursor: pointer;
-    background-color: rgba(255, 69, 0, 0.1);
-    animation: bounceEffectPC 2s infinite ease-in-out;
-    transition: all 0.3s ease;
+    width: 55px !important;
+    height: 55px !important;
+    min-width: 55px !important;
+    min-height: 55px !important;
+    border: 3px solid #ff4500 !important;
+    border-radius: 50% !important;
+    display: flex !important;
+    align-items: center !important;
+    justify-content: center !important;
+    cursor: pointer !important;
+    background-color: rgba(255, 69, 0, 0.1) !important;
+    animation: bounceEffectPC 2s infinite ease-in-out !important;
+    transition: all 0.3s ease !important;
+    margin: 0 auto !important;
   }
 
   .scroll-circle i {
-    color: #ff4500;
-    font-size: 2.2rem;
+    color: #ff4500 !important;
+    font-size: 2.2rem !important;
+    display: block !important;
   }
 
-  @media (min-width: 769px) {
+  /* OTROS ESTILOS LIMPIOS */
+  .heading { font-size: 4rem; }
+  .home-content h1 { font-size: 5rem; }
+  .home-img img { width: 260px; height: 260px; }
+  .service-box { min-height: auto; padding: 2rem 0; }
+  .back-button { font-size: 1.6rem; padding: 1rem 2.2rem; }
+  .project-gifs-container { display: flex; gap: 10px; justify-content: center; width: 100%; margin-bottom: 15px; }
+  .project-gifs-container img { width: calc(50% - 5px); object-fit: cover; border-radius: 8px; }
 
-    /* Forzamos a la sección contenedora a centrar todo en PC */
+  /* =======================================================
+     REGLAS ESPECÍFICAS PARA PC (FUERZA BRUTA DE CENTRADO)
+     ======================================================= */
+  @media (min-width: 769px) {
+    /* Forzamos a la sección contenedora a centrar todo verticalmente */
     .home-summary,
-    section.home {
+    section.home,
+    .home {
       display: flex !important;
       flex-direction: column !important;
       justify-content: center !important;
@@ -422,7 +439,7 @@ section {
       padding: 0 10% !important;
     }
 
-    /* Forzamos al contenedor de texto a centrarse en medio de la pantalla */
+    /* Forzamos al contenedor de texto a centrarse e ignorar flotados de PC */
     .home-content {
       display: flex !important;
       flex-direction: column !important;
@@ -432,32 +449,23 @@ section {
       max-width: 800px !important;
       margin: 0 auto !important;
       text-align: center !important;
+      float: none !important;
     }
 
-    /* Forzamos a que los textos dentro no se alineen a la izquierda */
+    /* Forzamos a que el título H3 y el párrafo se centren en PC */
     .home-content h3,
-    .home-content p {
+    .home-content p,
+    .home-content h1 {
       text-align: center !important;
       width: 100% !important;
+      margin-left: auto !important;
+      margin-right: auto !important;
     }
 
-    /* El contenedor de scroll ahora baja de forma natural y centrada */
+    /* El contenedor de scroll ahora baja centrado abajo del texto */
     .scroll-container {
-      display: flex !important;
-      flex-direction: column !important;
-      align-items: center !important;
-      justify-content: center !important;
-      margin: 50px auto 0 auto !important; /* Espaciado arriba y centrado horizontal */
+      margin: 50px auto 0 auto !important;
       width: auto !important;
-    }
-
-    /* Nos aseguramos de que el círculo recupere su tamaño y no se achique */
-    .scroll-circle {
-      display: flex !important;
-      width: 55px !important;
-      height: 55px !important;
-      min-width: 55px !important;
-      min-height: 55px !important;
     }
   }
 
