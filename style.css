@@ -442,7 +442,7 @@ section {
     text-align: center !important;
   }
 
- 
+  /* Forzamos alineaciones centradas a los textos internos de la subpágina */
   .home-summary .home-content h3,
   .home-summary .home-content p,
   .home-summary .home-content h1 {
@@ -453,16 +453,34 @@ section {
 
   .cv-buttons-container {
     display: flex;
-    gap: 20px;
-    justify-content: flex-start;
-    margin-top: 2rem;
-    flex-wrap: wrap;
+    gap: 15px; /* Separación entre los botones */
+    justify-content: flex-start; /* Alineados a la izquierda en PC */
+    margin-top: 2.5rem;
+    width: 100%;
   }
 
+  /* Fuerza a los botones a permitir saltos de línea si el texto es largo */
+  .cv-buttons-container .gradient-btn {
+    text-wrap: normal !important;
+    white-space: normal !important;
+    text-align: center;
+  }
 
-  @media (max-width: 991px) {
+  /* =======================================================
+     REGLA ESPECÍFICA PARA DISPOSITIVOS MÓVILES
+     ======================================================= */
+  @media (max-width: 768px) {
     .cv-buttons-container {
-      justify-content: center;
+      flex-direction: column !important; /* Los pone uno abajo del otro en el cel */
+      align-items: center !important; /* Los centra en la pantalla */
+      justify-content: center !important;
+    }
+
+    .cv-buttons-container .gradient-btn {
+      width: 85% !important; /* Les da un ancho estético para que quepa bien el texto */
+      max-width: 320px !important;
+      padding: 1.2rem 2rem !important; /* Espaciado interno cómodo */
+      font-size: 1.6rem !important; /* Ajusta un poco el tamaño de letra en cel */
     }
   }
 
