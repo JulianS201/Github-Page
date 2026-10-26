@@ -442,7 +442,7 @@ section {
     text-align: center !important;
   }
 
-  /* Forzamos alineaciones centradas a los textos internos de la subpágina */
+ 
   .home-summary .home-content h3,
   .home-summary .home-content p,
   .home-summary .home-content h1 {
@@ -450,4 +450,21 @@ section {
     width: 100% !important;
     margin: 10px auto !important;
   }
+
+  .cv-buttons-container {
+    display: flex;
+    gap: 20px;
+    justify-content: flex-start;
+    margin-top: 2rem;
+    flex-wrap: wrap;
+  }
+
+
+  @media (max-width: 991px) {
+    .cv-buttons-container {
+      justify-content: center;
+    }
+  }
+
+
 }
