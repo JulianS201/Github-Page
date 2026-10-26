@@ -1,53 +1,28 @@
 <!DOCTYPE html>
 <html lang="en">
-  <head>
+<head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>Portfolio Website</title>
     <link rel="stylesheet" href="style.css" />
-    <link
-      href="https://unpkg.com/boxicons@2.1.4/css/boxicons.min.css"
-      rel="stylesheet" />
-  </head>
-  <body>
+    <link href="https://unpkg.com" rel="stylesheet" />
+</head>
+<body>
 
-    <header class=" header">
-
-
-
-
-      <a href="#home" class="logo">
+<header class="header">
+    <a href="#home" class="logo">
         Block <span>Bench</span>
-      </a>
+    </a>
+    <i class="bx bx-menu" id="menu-icon"></i>
+    <a href="index.html" class="back-button">
+        <i class="bx bx-arrow-back"></i> Back
+    </a>
+</header>
 
-      <i class="bx bx-menu" id="menu-icon"></i>
-
-
-
-      <a href="index.html" class="back-button">
-  <i class="bx bx-arrow-back"></i> Back
-</a>
-
-  
-    </header>
-
-    <section class="home home-summary" id="home">
-
-      <div class="home-content">
-
-
-        <h3>
-
-            Block<span>Bench</span>
-
-        </h3>
-
-     
-
-<p>This section features a collection of voxel-style 3D models and pixel art textures, all designed in Blockbench and entirely created by me.</p>
-      </div>
-
-
+<section class="home home-summary" id="home">
+    <div class="home-content">
+        <h3>Block<span>Bench</span></h3>
+        <p>This section features a collection of voxel-style 3D models and pixel art textures, all designed in Blockbench and entirely created by me.</p>
 
         <div class="scroll-container">
             <span class="scroll-text">Scroll Down</span>
@@ -55,43 +30,25 @@
                 <i class="bx bx-chevron-down"></i>
             </div>
         </div>
+    </div>
+</section>
 
-
-    </section>
-
-
-    <section class="projects" id="Projects">
-
+<section class="projects" id="Projects">
     <h2 class="heading">Images</h2>
     <div class="projects-box">
-
-      <div class="project-card">
-
-        <img src="Gif/d1.gif" alt>
-
-<h3>King Rat</h3>
-<p>Design entirely created by me</p>
-
-
-      </div>
-
-
-
-
-      <div class="project-card">
-
-        <img src="Gif/d2.gif" alt>
-
-<h3>Fungus</h3>
-<p>Design entirely created by me</p>
-
-
-      </div>
-
-
-
-
+        <div class="project-card">
+            <img src="Gif/d1.gif" alt="King Rat">
+            <h3>King Rat</h3>
+            <p>Design entirely created by me</p>
+        </div>
+        <div class="project-card">
+            <img src="Gif/d2.gif" alt="Fungus">
+            <h3>Fungus</h3>
+            <p>Design entirely created by me</p>
+        </div>
+    </div>
 </section>
-    <script src="script.js"></script>
-  </body>
+
+<script src="script.js"></script>
+</body>
 </html>
